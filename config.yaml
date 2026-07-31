@@ -1,0 +1,1612 @@
+warp-common: &warp-common
+  type: wireguard
+  ip: 172.16.0.2
+  ipv6: 2606:4700:110:84a7:f630:9851:4dcb:8403
+  private-key: aINZncoJoeg56mrmr96Olt4FVSNYockLzKDq89mklnU=
+  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+  allowed-ips: ['0.0.0.0/0']
+  reserved: [69, 122, 205]
+  udp: true
+  mtu: 1280
+  remote-dns-resolve: true
+  dns: [1.1.1.1, 1.0.0.1, 2606:4700:4700::1111, 2606:4700:4700::1001]
+  amnezia-wg-option:
+   jc: 4
+   jmin: 40
+   jmax: 70
+   s1: 0
+   s2: 0
+   h1: 1
+   h2: 2
+   h4: 3
+   h3: 4
+   i1: <b 0xc10000000114367096bb0fb3f58f3a3fb8aaacd61d63a1c8a40e14f7374b8a62dccba6431716c3abf6f5afbcfb39bd008000047c32e268567c652e6f4db58bff759bc8c5aaca183b87cb4d22938fe7d8dca22a679a79e4d9ee62e4bbb3a380dd78d4e8e48f26b38a1d42d76b371a5a9a0444827a69d1ab5872a85749f65a4104e931740b4dc1e2dd77733fc7fac4f93011cd622f2bb47e85f71992e2d585f8dc765a7a12ddeb879746a267393ad023d267c4bd79f258703e27345155268bd3cc0506ebd72e2e3c6b5b0f005299cd94b67ddabe30389c4f9b5c2d512dcc298c14f14e9b7f931e1dc397926c31fbb7cebfc668349c218672501031ecce151d4cb03c4c660b6c6fe7754e75446cd7de09a8c81030c5f6fb377203f551864f3d83e27de7b86499736cbbb549b2f37f436db1cae0a4ea39930f0534aacdd1e3534bc87877e2afabe959ced261f228d6362e6fd277c88c312d966c8b9f67e4a92e757773db0b0862fb8108d1d8fa262a40a1b4171961f0704c8ba314da2482ac8ed9bd28d4b50f7432d89fd800c25a50c5e2f5c0710544fef5273401116aa0572366d8e49ad758fcb29e6a92912e644dbe227c247cb3417eabfab2db16796b2fba420de3b1dc94e8361f1f324a331ddaf1e626553138860757fd0bf687566108b77b70fb9f8f8962eca599c4a70ed373666961a8cb506b96756d9e28b94122b20f16b54f118c0e603ce0b831efea614ad836df6cf9affbdd09596412547496967da758cec9080295d853b0861670b71d9abde0d562b1a6de82782a5b0c14d297f27283a895abc889a5f6703f0e6eb95f67b2da45f150d0d8ab805612d570c2d5cb6997ac3a7756226c2f5c8982ffbd480c5004b0660a3c9468945efde90864019a2b519458724b55d766e16b0da25c0557c01f3c11ddeb024b62e303640e17fdd57dedb3aeb4a2c1b7c93059f9c1d7118d77caac1cd0f6556e46cbc991c1bb16970273dea833d01e5090d061a0c6d25af2415cd2878af97f6d0e7f1f936247b394ecb9bd484da6be936dee9b0b92dc90101a1b4295e97a9772f2263eb09431995aa173df4ca2abd687d87706f0f93eaa5e13cbe3b574fa3cfe94502ace25265778da6960d561381769c24e0cbd7aac73c16f95ae74ff7ec38124f7c722b9cb151d4b6841343f29be8f35145e1b27021056820fed77003df8554b4155716c8cf6049ef5e318481460a8ce3be7c7bfac695255be84dc491c19e9dedc449dd3471728cd2a3ee51324ccb3eef121e3e08f8e18f0006ea8957371d9f2f739f0b89e4db11e5c6430ada61572e589519fbad4498b460ce6e4407fc2d8f2dd4293a50a0cb8fcaaf35cd9a8cc097e3603fbfa08d9036f52b3e7fcce11b83ad28a4ac12dba0395a0cc871cefd1a2856fffb3f28d82ce35cf80579974778bab13d9b3578d8c75a2d196087a2cd439aff2bb33f2db24ac175fff4ed91d36a4cdbfaf3f83074f03894ea40f17034629890da3efdbb41141b38368ab532209b69f057ddc559c19bc8ae62bf3fd564c9a35d9a83d14a95834a92bae6d9a29ae5e8ece07910d16433e4c6230c9bd7d68b47de0de9843988af6dc88b5301820443bd4d0537778bf6b4c1dd067fcf14b81015f2a67c7f2a28f9cb7e0684d3cb4b1c24d9b343122a086611b489532f1c3a26779da1706c6759d96d8ab>
+
+warp-masque: &warp-masque
+  type: masque
+  sni: 4pda.to
+  private-key: MHcCAQEEILwkQrngC/rwL1zukT/Kfhyz7haJobPu/Ls0GbhNdgryoAoGCCqGSM49AwEHoUQDQgAE15d7ZevkRuxM0Sr/CvNU7mB7zfN+YgWWCIszUV8yF8Vv9sMfNehLl/mJ542yuIj4Y1/36S+gYJnC3PpG4KA6Cg==
+  public-key: MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEIaU7MToJm9NKp8YfGxR6r+/h4mcG7SxI8tsW8OR1A5tv/zCzVbCRRh2t87/kxnP6lAy0lkr7qYwu+ox+k3dr6w==
+  ip: 172.16.0.2
+  ipv6: 2606:4700:110:81e0:d39a:d034:9e62:3543
+  udp: true
+  remote-dns-resolve: true
+  dns: [1.1.1.1, 1.0.0.1, 2606:4700:4700::1111, 2606:4700:4700::1001]
+
+proxy-groups:
+- name: PROXY
+  type: select
+  url: http://cp.cloudflare.com/generate_204
+  expected-status: 204
+  interval: 300
+  icon: https://i.imgur.com/B3HrpPC.png
+  proxies:
+    - Subscription (1)
+    - Subscription (2)
+    - Subscription (3)
+    - Subscription (4)
+    - Subscription (5)
+    - Subscription (6)
+    - Subscription (7)
+    - Subscription (8)
+    - Subscription (9)
+    - Subscription (10)
+    - Subscription (11)
+    - Subscription (12)
+    - Subscription (13)
+    - Subscription (14)
+    - Subscription (15)
+    - Subscription (16)
+    - Subscription (17)
+    - Subscription (18)
+    - Subscription (19)
+    - Subscription (20)
+    - Subscription (21)
+    - Subscription (22)
+    - Subscription (23)
+    - Subscription (24)
+    - Subscription (25)
+    - Subscription (26)
+    - Subscription (27)
+    - Subscription (28)
+    - Subscription (29)
+    - Subscription (30)
+    - Subscription (31)
+    - Subscription (32)
+    - Subscription (33)
+    - Subscription (34)
+    - Subscription (35)
+    - Subscription (36)
+    - Subscription (37)
+    - WARP (Geo)
+    - WARP (MASQUE)
+    - WARP (Origin)
+    - WARP (Default)
+
+- name: Subscription (1)
+  use:
+    - sub_1
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  expected-status: 204
+  interval: 300
+  tolerance: 150
+  lazy: true
+
+- name: Subscription (2)
+  use:
+    - sub_2
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  expected-status: 204
+  interval: 300
+  tolerance: 150
+  lazy: true
+
+- name: Subscription (3)
+  use:
+    - sub_3
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  expected-status: 204
+  interval: 300
+  tolerance: 150
+  lazy: true
+
+- name: Subscription (4)
+  use:
+    - sub_4
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  expected-status: 204
+  interval: 300
+  tolerance: 150
+  lazy: true
+
+- name: Subscription (5)
+  use:
+    - sub_5
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  expected-status: 204
+  interval: 300
+  tolerance: 150
+  lazy: true
+
+- name: Subscription (6)
+  use:
+    - sub_6
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  expected-status: 204
+  interval: 300
+  tolerance: 150
+  lazy: true
+
+- name: Subscription (7)
+  use:
+    - sub_7
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  expected-status: 204
+  interval: 300
+  tolerance: 150
+  lazy: true
+
+- name: Subscription (8)
+  use:
+    - sub_8
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  expected-status: 204
+  interval: 300
+  tolerance: 150
+  lazy: true
+
+- name: Subscription (9)
+  use:
+    - sub_9
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  expected-status: 204
+  interval: 300
+  tolerance: 150
+  lazy: true
+
+- name: Subscription (10)
+  use:
+    - sub_10
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  expected-status: 204
+  interval: 300
+  tolerance: 150
+  lazy: true
+
+- name: Subscription (11)
+  use:
+    - sub_11
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  expected-status: 204
+  interval: 300
+  tolerance: 150
+  lazy: true
+
+- name: Subscription (12)
+  use:
+    - sub_12
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  expected-status: 204
+  interval: 300
+  tolerance: 150
+  lazy: true
+
+- name: Subscription (13)
+  use:
+    - sub_14
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  expected-status: 204
+  interval: 300
+  tolerance: 150
+  lazy: true
+
+- name: Subscription (14)
+  use:
+    - sub_15
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  expected-status: 204
+  interval: 300
+  tolerance: 150
+  lazy: true
+
+- name: Subscription (15)
+  use:
+    - sub_16
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  expected-status: 204
+  interval: 300
+  tolerance: 150
+  lazy: true
+
+- name: Subscription (16)
+  use:
+    - sub_17
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  expected-status: 204
+  interval: 300
+  tolerance: 150
+  lazy: true
+
+- name: Subscription (17)
+  use:
+    - sub_18
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  expected-status: 204
+  interval: 300
+  tolerance: 150
+  lazy: true
+
+- name: Subscription (18)
+  use:
+    - sub_19
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  expected-status: 204
+  interval: 300
+  tolerance: 150
+  lazy: true
+
+- name: Subscription (19)
+  use:
+    - sub_20
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  expected-status: 204
+  interval: 300
+  tolerance: 150
+  lazy: true
+
+- name: Subscription (20)
+  use:
+    - sub_21
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  expected-status: 204
+  interval: 300
+  tolerance: 150
+  lazy: true
+
+- name: Subscription (21)
+  use:
+    - sub_22
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  expected-status: 204
+  interval: 300
+  tolerance: 150
+  lazy: true
+
+- name: Subscription (22)
+  use:
+    - sub_23
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  expected-status: 204
+  interval: 300
+  tolerance: 150
+  lazy: true
+
+- name: Subscription (23)
+  use:
+    - sub_24
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  expected-status: 204
+  interval: 300
+  tolerance: 150
+  lazy: true
+
+- name: Subscription (24)
+  use:
+    - sub_25
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  expected-status: 204
+  interval: 300
+  tolerance: 150
+  lazy: true
+
+- name: Subscription (25)
+  use:
+    - sub_26
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  expected-status: 204
+  interval: 300
+  tolerance: 150
+  lazy: true
+
+- name: Subscription (26)
+  use:
+    - sub_27
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  expected-status: 204
+  interval: 300
+  tolerance: 150
+  lazy: true
+
+- name: Subscription (27)
+  use:
+    - sub_28
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  expected-status: 204
+  interval: 300
+  tolerance: 150
+  lazy: true
+
+- name: Subscription (28)
+  use:
+    - sub_29
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  expected-status: 204
+  interval: 300
+  tolerance: 150
+  lazy: true
+
+- name: Subscription (29)
+  use:
+    - sub_30
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  expected-status: 204
+  interval: 300
+  tolerance: 150
+  lazy: true
+
+- name: Subscription (30)
+  use:
+    - sub_31
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  expected-status: 204
+  interval: 300
+  tolerance: 150
+  lazy: true
+
+- name: Subscription (31)
+  use:
+    - sub_32
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  expected-status: 204
+  interval: 300
+  tolerance: 150
+  lazy: true
+
+- name: Subscription (32)
+  use:
+    - sub_33
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  expected-status: 204
+  interval: 300
+  tolerance: 150
+  lazy: true
+
+- name: Subscription (33)
+  use:
+    - sub_34
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  expected-status: 204
+  interval: 300
+  tolerance: 150
+  lazy: true
+
+- name: Subscription (34)
+  use:
+    - sub_35
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  expected-status: 204
+  interval: 300
+  tolerance: 150
+  lazy: true
+
+- name: Subscription (35)
+  use:
+    - sub_36
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  expected-status: 204
+  interval: 300
+  tolerance: 150
+  lazy: true
+
+- name: Subscription (36)
+  use:
+    - sub_37
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  expected-status: 204
+  interval: 300
+  tolerance: 150
+  lazy: true
+
+- name: Subscription (37)
+  use:
+    - sub_38
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  expected-status: 204
+  interval: 300
+  tolerance: 150
+  lazy: true
+
+- name: WARP (Geo)
+  include-all-proxies: true
+  filter: "🌍"
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  interval: 300
+
+- name: WARP (MASQUE)
+  filter: "🎭"
+  include-all-proxies: true
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  interval: 300
+  lazy: true
+
+- name: WARP (Origin)
+  filter: "⭐"
+  include-all-proxies: true
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  interval: 300
+  lazy: true
+
+- name: WARP (Default)
+  filter: "☁️"
+  include-all-proxies: true
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  interval: 300
+  lazy: true
+
+proxy-providers:
+  sub_1:
+    type: http
+    url: "https://gh-proxy.com/raw.githubusercontent.com/ssrsub/ssr/master/clash.yaml"
+    path: ./proxy_providers/sub_1.yml
+    override:
+      udp: true
+    health-check:
+      enable: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 300
+      timeout: 5000
+      lazy: true
+      expected-status: 204
+  sub_2:
+    type: http
+    url: "https://gh-proxy.com/raw.githubusercontent.com/iampedii/whitedns-sub/refs/heads/main/mihomo.yaml"
+    path: ./proxy_providers/sub_2.yml
+    override:
+      udp: true
+    health-check:
+      enable: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 300
+      timeout: 5000
+      lazy: true
+      expected-status: 204
+  sub_3:
+    type: http
+    url: "https://gh-proxy.com/raw.githubusercontent.com/gergew452/Generation-Liberty/refs/heads/main/githubmirror/best.txt"
+    path: ./proxy_providers/sub_3.yml
+    override:
+      udp: true
+    health-check:
+      enable: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 300
+      timeout: 5000
+      lazy: true
+      expected-status: 204
+  sub_4:
+    type: http
+    url: "https://raw.githubusercontent.com/hans-thomas/v2ray-subscription/refs/heads/master/servers.txt"
+    path: ./proxy_providers/sub_4.yml
+    override:
+      udp: true
+    health-check:
+      enable: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 300
+      timeout: 5000
+      lazy: true
+      expected-status: 204
+  sub_5:
+    type: http
+    url: "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub"
+    path: ./proxy_providers/sub_5.yml
+    override:
+      udp: true
+    health-check:
+      enable: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 300
+      timeout: 5000
+      lazy: true
+      expected-status: 204
+  sub_6:
+    type: http
+    url: "https://raw.githubusercontent.com/freefq/free/refs/heads/master/v2"
+    path: ./proxy_providers/sub_6.yml
+    override:
+      udp: true
+    health-check:
+      enable: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 300
+      timeout: 5000
+      lazy: true
+      expected-status: 204
+  sub_7:
+    type: http
+    url: "https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/refs/heads/main/githubmirror/1.txt"
+    path: ./proxy_providers/sub_7.yml
+    override:
+      udp: true
+    health-check:
+      enable: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 300
+      timeout: 5000
+      lazy: true
+      expected-status: 204
+  sub_8:
+    type: http
+    url: "https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/refs/heads/main/githubmirror/6.txt"
+    path: ./proxy_providers/sub_8.yml
+    override:
+      udp: true
+    health-check:
+      enable: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 300
+      timeout: 5000
+      lazy: true
+      expected-status: 204
+  sub_9:
+    type: http
+    url: "https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/refs/heads/main/githubmirror/22.txt"
+    path: ./proxy_providers/sub_9.yml
+    override:
+      udp: true
+    health-check:
+      enable: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 300
+      timeout: 5000
+      lazy: true
+      expected-status: 204
+  sub_10:
+    type: http
+    url: "https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/refs/heads/main/githubmirror/23.txt"
+    path: ./proxy_providers/sub_10.yml
+    override:
+      udp: true
+      enable: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 300
+      timeout: 5000
+      lazy: true
+      expected-status: 204
+  sub_11:
+    type: http
+    url: "https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/refs/heads/main/githubmirror/24.txt"
+    path: ./proxy_providers/sub_11.yml
+    override:
+      udp: true
+    health-check:
+      enable: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 300
+      timeout: 5000
+      lazy: true
+      expected-status: 204
+  sub_12:
+    type: http
+    url: "https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/refs/heads/main/githubmirror/25.txt"
+    path: ./proxy_providers/sub_12.yml
+    override:
+      udp: true
+    health-check:
+      enable: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 300
+      timeout: 5000
+      lazy: true
+      expected-status: 204
+  sub_13:
+    type: http
+    url: "https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/refs/heads/main/githubmirror/26.txt"
+    path: ./proxy_providers/sub_13.yml
+    override:
+      udp: true
+    health-check:
+      enable: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 300
+      timeout: 5000
+      lazy: true
+      expected-status: 204
+  sub_14:
+    type: http
+    url: "https://gitverse.ru/api/repos/cid-uskoritel/cid-white/raw/branch/master/whitelist.txt"
+    path: ./proxy_providers/sub_14.yml
+    override:
+      udp: true
+    health-check:
+      enable: true
+      lazy: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 300
+      timeout: 5000
+      expected-status: 204
+  sub_15:
+    type: http
+    url: "https://gitverse.ru/api/repos/zieng2/wl/raw/branch/master/list_universal.txt"
+    path: ./proxy_providers/sub_15.yml
+    override:
+      udp: true
+    health-check:
+      enable: true
+      lazy: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 300
+      timeout: 5000
+      expected-status: 204
+  sub_16:
+    type: http
+    url: "https://raw.githubusercontent.com/ByeWhiteLists/ByeWhiteLists2/refs/heads/main/ByeWhiteLists2.txt"
+    path: ./proxy_providers/sub_16.yml
+    override:
+      udp: true
+    health-check:
+      enable: true
+      lazy: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 300
+      timeout: 5000
+      expected-status: 204
+  sub_17:
+    type: http
+    url: "https://etoneya.su/whitelist"
+    path: ./proxy_providers/sub_17.yml
+    override:
+      udp: true
+    health-check:
+      enable: true
+      lazy: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 300
+      timeout: 5000
+      expected-status: 204
+  sub_18:
+    type: http
+    url: "https://gitverse.ru/api/repos/nloverx/EtoNeYa_Subs/raw/branch/master/gemini"
+    path: ./proxy_providers/sub_18.yml
+    override:
+      udp: true
+      client-fingerprint: random
+    health-check:
+      enable: true
+      lazy: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 300
+      timeout: 5000
+      expected-status: 204
+  sub_19:
+    type: http
+    url: "https://raw.githack.com/igareck/vpn-configs-for-russia/main/Vless-Reality-White-Lists-Rus-Mobile.txt"
+    path: ./proxy_providers/sub_19.yml
+    override:
+      udp: true
+    health-check:
+      enable: true
+      lazy: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 300
+      timeout: 5000
+      expected-status: 204
+  sub_20:
+    type: http
+    url: "https://raw.githack.com/igareck/vpn-configs-for-russia/main/BLACK_VLESS_RUS.txt"
+    path: ./proxy_providers/sub_20.yml
+    override:
+      udp: true
+    health-check:
+      enable: true
+      lazy: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 300
+      timeout: 5000
+      expected-status: 204
+  sub_21:
+    type: http
+    url: "https://raw.githack.com/igareck/vpn-configs-for-russia/main/BLACK_SS%2BAll_RUS.txt"
+    path: ./proxy_providers/sub_21.yml
+    override:
+      udp: true
+    health-check:
+      enable: true
+      lazy: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 300
+      timeout: 5000
+      expected-status: 204
+  sub_22:
+    type: http
+    url: "https://raw.githubusercontent.com/acymz/AutoVPN/refs/heads/main/data/V2.txt"
+    path: ./proxy_providers/sub_22.yml
+    override:
+      udp: true
+    health-check:
+      enable: true
+      lazy: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 300
+      timeout: 5000
+      expected-status: 204
+  sub_23:
+    type: http
+    url: "https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/refs/heads/main/githubmirror/26.txt"
+    interval: 14400
+    path: ./providers/goida_26.yaml
+    override: {"skip-cert-verify": true, "udp": true, "alpn": ["h2", "http/1.1"], "client-fingerprint": "firefox"}
+    health-check: {"enable": true, "interval": 600, "timeout": 4000, "lazy": true, "expected-status": 204, "url": "http://cp.cloudflare.com/generate_204"}
+  sub_24:
+    type: http
+    url: "https://mifa.world/vless"
+    path: ./proxy_providers/sub_vless.yml
+    override:
+      udp: true
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+      timeout: 5000
+      lazy: true
+  sub_25:
+    type: http
+    url: "https://mifa.world/other"
+    path: ./proxy_providers/sub_other.yml
+    override:
+      udp: true
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+      timeout: 5000
+      lazy: true
+  sub_26:
+    type: http
+    url: "https://raw.githubusercontent.com/ShadowException/VPN/refs/heads/main/configs/VPN-cat"
+    path: ./proxy_providers/sub_26.yml
+    override:
+      udp: true
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+      timeout: 5000
+      lazy: true
+  sub_27:
+    type: http
+    url: "https://raw.githubusercontent.com/arhivedxx7/Keyfreetee/refs/heads/main/Maindee"
+    path: ./proxy_providers/sub_27.yml
+    override:
+      udp: true
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+      timeout: 5000
+      lazy: true
+  sub_28:
+    type: http
+    url: "https://raw.githubusercontent.com/Maskkost93/kizyak-vpn-4.0/refs/heads/main/kizyakbeta6BL.txt"
+    path: ./proxy_providers/sub_28.yml
+    override:
+      udp: true
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+      timeout: 5000
+      lazy: true
+  sub_29:
+    type: http
+    url: "https://happ.dska.su/https://sub.pfvpn.cfd/free/sub"
+    path: ./proxy_providers/sub_29.yml
+    override:
+      udp: true
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+      timeout: 5000
+      lazy: true
+  sub_30:
+    type: http
+    url: "https://raw.githubusercontent.com/RKPchannel/RKP_bypass_configs/refs/heads/main/blacklist.txt"
+    path: ./proxy_providers/sub_30.yml
+    override:
+      udp: true
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+      timeout: 5000
+      lazy: true
+  sub_31:
+    type: http
+    url: "https://titandarkness.mooo.com/Bxai4TJiti/jYKkbuDFNpTEu78"
+    path: ./proxy_providers/sub_31.yml
+    override:
+      udp: true
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+      timeout: 5000
+      lazy: true
+  sub_32:
+    type: http
+    url: "https://happ.ring-team.ru/sub/u6v5mktdma"
+    path: ./proxy_providers/sub_32.yml
+    override:
+      udp: true
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+      timeout: 5000
+      lazy: true
+  sub_33:
+    type: http
+    url: "https://happ.ring-team.ru/sub/vcty2nazgk?key"
+    path: ./proxy_providers/sub_33.yml
+    override:
+      udp: true
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+      timeout: 5000
+      lazy: true
+  sub_34:
+    type: http
+    url: "https://happ.dska.su/https://admin.fixcord.gg/happ/8q8rTKgJcnGGTLQkwScicQ38S1Q_IE-EYXFPeK90Mtw/subscription"
+    path: ./proxy_providers/sub_34.yml
+    override:
+      udp: true
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+      timeout: 5000
+      lazy: true
+  sub_35:
+    type: http
+    url: "https://raw.githubusercontent.com/Ilyacom4ik/free-v2ray-2026/main/subscriptions/FreeCFGHub1.txt"
+    path: ./proxy_providers/sub_35.yml
+    override:
+      udp: true
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+      timeout: 5000
+      lazy: true
+  sub_36:
+    type: http
+    url: "https://rostunnel.vercel.app/mega.txt"
+    path: ./proxy_providers/sub_36.yml
+    override:
+      udp: true
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+      timeout: 5000
+      lazy: true
+  sub_37:
+    type: http
+    url: "https://raw.githubusercontent.com/RKPchannel/RKP_bypass_configs/refs/heads/main/blacklist.txt"
+    path: ./proxy_providers/sub_37.yml
+    override:
+      udp: true
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+      timeout: 5000
+      lazy: true
+  sub_38:
+    type: http
+    url: "https://raw.githubusercontent.com/Maskkost93/kizyak-vpn-4.0/refs/heads/main/kizyakbeta6BL.txt"
+    path: ./proxy_providers/sub_38.yml
+    override:
+      udp: true
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+      timeout: 5000
+      lazy: true
+
+proxies:
+# === BEGIN WARP PROXIES (auto-generated from proxies/*.yaml — do not edit) ===
+  # ── geo-endpoint ──
+- name: "[🌍] 🇳🇱 Нидерланды"
+  <<: *warp-common
+  server: nl.tribukvy.ltd
+  port: 4500
+- name: "[🌍] 🇵🇱 Польша"
+  <<: *warp-common
+  server: pl.tribukvy.ltd
+  port: 4500
+- name: "[🌍] 🇷🇺 Россия"
+  <<: *warp-common
+  server: ru0.tribukvy.ltd
+  port: 4500
+- name: "[🌍] 🇫🇮 Финляндия"
+  <<: *warp-common
+  server: fi.tribukvy.ltd
+  port: 4500
+- name: "[🌍] 🇩🇪 Германия"
+  <<: *warp-common
+  server: de.tribukvy.ltd
+  port: 4500
+- name: "[🌍] 🇱🇻 Латвия"
+  <<: *warp-common
+  server: lv.tribukvy.ltd
+  port: 4500
+- name: "[🌍] TEL 🇵🇱 Польша"
+  <<: *warp-common
+  server: mpl.tribukvy.ltd
+  port: 4500
+- name: "[🌍] TEL 🇫🇮 Финляндия"
+  <<: *warp-common
+  server: mfi.tribukvy.ltd
+  port: 4500
+
+# ── origin-endpoint ──
+- name: "[⭐] engage.cloudflareclient.com:4500"
+  <<: *warp-common
+  server: engage.cloudflareclient.com
+  port: 4500
+- name: "[⭐] engage.cloudflareclient.com:500"
+  <<: *warp-common
+  server: engage.cloudflareclient.com
+  port: 500
+- name: "[⭐] engage.cloudflareclient.com:2408"
+  <<: *warp-common
+  server: engage.cloudflareclient.com
+  port: 2408
+- name: "[⭐] 162.159.192.1:4500"
+  <<: *warp-common
+  server: 162.159.192.1
+  port: 500
+- name: "[⭐] 162.159.192.1:500"
+  <<: *warp-common
+  server: 162.159.192.1
+  port: 500
+- name: "[⭐] 162.159.192.1:2408"
+  <<: *warp-common
+  server: 162.159.192.1
+  port: 2408
+- name: "[⭐] 8.6.112.1:4500"
+  <<: *warp-common
+  server: 8.6.112.1
+  port: 4500
+- name: "[⭐] 8.34.70.1:500"
+  <<: *warp-common
+  server: 8.34.70.1
+  port: 500
+- name: "[⭐] 8.34.146.1:2408"
+  <<: *warp-common
+  server: 8.34.146.1
+  port: 2408
+- name: "[⭐] 8.35.211.1:4500"
+  <<: *warp-common
+  server: 8.35.211.1
+  port: 4500
+- name: "[⭐] 8.39.125.1:500"
+  <<: *warp-common
+  server: 8.39.125.1
+  port: 500
+- name: "[⭐] 8.39.204.1:2408"
+  <<: *warp-common
+  server: 8.39.204.1
+  port: 2408
+- name: "[⭐] 8.39.214.1:4500"
+  <<: *warp-common
+  server: 8.39.214.1
+  port: 4500
+- name: "[⭐] 8.47.69.1:500"
+  <<: *warp-common
+  server: 8.47.69.1
+  port: 500
+- name: "[⭐] 188.114.96.1:2408"
+  <<: *warp-common
+  server: 188.114.96.1
+  port: 2408
+- name: "[⭐] 188.114.97.1:4500"
+  <<: *warp-common
+  server: 188.114.97.1
+  port: 4500
+- name: "[⭐] 188.114.98.1:500"
+  <<: *warp-common
+  server: 188.114.98.1
+  port: 500
+
+# ── default-endpoint ──
+- name: "[☁️] 162.159.192.1:2408"
+  <<: *warp-common
+  server: 162.159.192.1
+  port: 2408
+- name: "[☁️] 162.159.192.1:1701"
+  <<: *warp-common
+  server: 162.159.192.1
+  port: 1701
+- name: "[☁️] 162.159.192.1:4500"
+  <<: *warp-common
+  server: 162.159.192.1
+  port: 4500
+- name: "[☁️] 162.159.192.1:500"
+  <<: *warp-common
+  server: 162.159.192.1
+  port: 500
+- name: "[☁️] 162.159.192.2:2408"
+  <<: *warp-common
+  server: 162.159.192.2
+  port: 2408
+- name: "[☁️] 162.159.192.2:1701"
+  <<: *warp-common
+  server: 162.159.192.2
+  port: 1701
+- name: "[☁️] 162.159.192.2:4500"
+  <<: *warp-common
+  server: 162.159.192.2
+  port: 4500
+- name: "[☁️] 162.159.192.2:500"
+  <<: *warp-common
+  server: 162.159.192.2
+  port: 500
+- name: "[☁️] 162.159.192.3:2408"
+  <<: *warp-common
+  server: 162.159.192.3
+  port: 2408
+- name: "[☁️] 162.159.192.3:1701"
+  <<: *warp-common
+  server: 162.159.192.3
+  port: 1701
+- name: "[☁️] 162.159.192.3:4500"
+  <<: *warp-common
+  server: 162.159.192.3
+  port: 4500
+- name: "[☁️] 162.159.192.3:500"
+  <<: *warp-common
+  server: 162.159.192.3
+  port: 500
+- name: "[☁️] 162.159.192.4:2408"
+  <<: *warp-common
+  server: 162.159.192.4
+  port: 2408
+- name: "[☁️] 162.159.192.4:1701"
+  <<: *warp-common
+  server: 162.159.192.4
+  port: 1701
+- name: "[☁️] 162.159.192.4:4500"
+  <<: *warp-common
+  server: 162.159.192.4
+  port: 4500
+- name: "[☁️] 162.159.192.4:500"
+  <<: *warp-common
+  server: 162.159.192.4
+  port: 500
+- name: "[☁️] 162.159.192.5:2408"
+  <<: *warp-common
+  server: 162.159.192.5
+  port: 2408
+- name: "[☁️] 162.159.192.5:1701"
+  <<: *warp-common
+  server: 162.159.192.5
+  port: 1701
+- name: "[☁️] 162.159.192.5:4500"
+  <<: *warp-common
+  server: 162.159.192.5
+  port: 4500
+- name: "[☁️] 162.159.192.5:500"
+  <<: *warp-common
+  server: 162.159.192.5
+  port: 500
+- name: "[☁️] 162.159.192.6:2408"
+  <<: *warp-common
+  server: 162.159.192.6
+  port: 2408
+- name: "[☁️] 162.159.192.6:1701"
+  <<: *warp-common
+  server: 162.159.192.6
+  port: 1701
+- name: "[☁️] 162.159.192.6:4500"
+  <<: *warp-common
+  server: 162.159.192.6
+  port: 4500
+- name: "[☁️] 162.159.192.6:500"
+  <<: *warp-common
+  server: 162.159.192.6
+  port: 500
+- name: "[☁️] 162.159.192.7:2408"
+  <<: *warp-common
+  server: 162.159.192.7
+  port: 2408
+- name: "[☁️] 162.159.192.7:1701"
+  <<: *warp-common
+  server: 162.159.192.7
+  port: 1701
+- name: "[☁️] 162.159.192.7:4500"
+  <<: *warp-common
+  server: 162.159.192.7
+  port: 4500
+- name: "[☁️] 162.159.192.7:500"
+  <<: *warp-common
+  server: 162.159.192.7
+  port: 500
+- name: "[☁️] 162.159.192.8:2408"
+  <<: *warp-common
+  server: 162.159.192.8
+  port: 2408
+- name: "[☁️] 162.159.192.8:1701"
+  <<: *warp-common
+  server: 162.159.192.8
+  port: 1701
+- name: "[☁️] 162.159.192.8:4500"
+  <<: *warp-common
+  server: 162.159.192.8
+  port: 4500
+- name: "[☁️] 162.159.192.8:500"
+  <<: *warp-common
+  server: 162.159.192.8
+  port: 500
+- name: "[☁️] 162.159.192.9:2408"
+  <<: *warp-common
+  server: 162.159.192.9
+  port: 2408
+- name: "[☁️] 162.159.192.9:1701"
+  <<: *warp-common
+  server: 162.159.192.9
+  port: 1701
+- name: "[☁️] 162.159.192.9:4500"
+  <<: *warp-common
+  server: 162.159.192.9
+  port: 4500
+- name: "[☁️] 162.159.192.9:500"
+  <<: *warp-common
+  server: 162.159.192.9
+  port: 500
+- name: "[☁️] 162.159.192.10:2408"
+  <<: *warp-common
+  server: 162.159.192.10
+  port: 2408
+- name: "[☁️] 162.159.192.10:1701"
+  <<: *warp-common
+  server: 162.159.192.10
+  port: 1701
+- name: "[☁️] 162.159.192.10:4500"
+  <<: *warp-common
+  server: 162.159.192.10
+  port: 4500
+- name: "[☁️] 162.159.192.10:500"
+  <<: *warp-common
+  server: 162.159.192.10
+  port: 500
+- name: "[☁️] 162.159.192.11:2408"
+  <<: *warp-common
+  server: 162.159.192.11
+  port: 2408
+- name: "[☁️] 162.159.192.11:1701"
+  <<: *warp-common
+  server: 162.159.192.11
+  port: 1701
+- name: "[☁️] 162.159.192.11:4500"
+  <<: *warp-common
+  server: 162.159.192.11
+  port: 4500
+- name: "[☁️] 162.159.192.11:500"
+  <<: *warp-common
+  server: 162.159.192.11
+  port: 500
+- name: "[☁️] 162.159.192.12:2408"
+  <<: *warp-common
+  server: 162.159.192.12
+  port: 2408
+- name: "[☁️] 162.159.192.12:1701"
+  <<: *warp-common
+  server: 162.159.192.12
+  port: 1701
+- name: "[☁️] 162.159.192.12:4500"
+  <<: *warp-common
+  server: 162.159.192.12
+  port: 4500
+- name: "[☁️] 162.159.192.12:500"
+  <<: *warp-common
+  server: 162.159.192.12
+  port: 500
+- name: "[☁️] 162.159.192.13:2408"
+  <<: *warp-common
+  server: 162.159.192.13
+  port: 2408
+- name: "[☁️] 162.159.192.13:1701"
+  <<: *warp-common
+  server: 162.159.192.13
+  port: 1701
+- name: "[☁️] 162.159.192.13:4500"
+  <<: *warp-common
+  server: 162.159.192.13
+  port: 4500
+- name: "[☁️] 162.159.192.13:500"
+  <<: *warp-common
+  server: 162.159.192.13
+  port: 500
+- name: "[☁️] 162.159.192.14:2408"
+  <<: *warp-common
+  server: 162.159.192.14
+  port: 2408
+- name: "[☁️] 162.159.192.14:1701"
+  <<: *warp-common
+  server: 162.159.192.14
+  port: 1701
+- name: "[☁️] 162.159.192.14:4500"
+  <<: *warp-common
+  server: 162.159.192.14
+  port: 4500
+- name: "[☁️] 162.159.192.14:500"
+  <<: *warp-common
+  server: 162.159.192.14
+  port: 500
+- name: "[☁️] 162.159.192.15:2408"
+  <<: *warp-common
+  server: 162.159.192.15
+  port: 2408
+- name: "[☁️] 162.159.192.15:1701"
+  <<: *warp-common
+  server: 162.159.192.15
+  port: 1701
+- name: "[☁️] 162.159.192.15:4500"
+  <<: *warp-common
+  server: 162.159.192.15
+  port: 4500
+- name: "[☁️] 162.159.192.15:500"
+  <<: *warp-common
+  server: 162.159.192.15
+  port: 500
+- name: "[☁️] 162.159.192.16:2408"
+  <<: *warp-common
+  server: 162.159.192.16
+  port: 2408
+- name: "[☁️] 162.159.192.16:1701"
+  <<: *warp-common
+  server: 162.159.192.16
+  port: 1701
+- name: "[☁️] 162.159.192.16:4500"
+  <<: *warp-common
+  server: 162.159.192.16
+  port: 4500
+- name: "[☁️] 162.159.192.16:500"
+  <<: *warp-common
+  server: 162.159.192.16
+  port: 500
+- name: "[☁️] 162.159.192.17:2408"
+  <<: *warp-common
+  server: 162.159.192.17
+  port: 2408
+- name: "[☁️] 162.159.192.17:1701"
+  <<: *warp-common
+  server: 162.159.192.17
+  port: 1701
+- name: "[☁️] 162.159.192.17:4500"
+  <<: *warp-common
+  server: 162.159.192.17
+  port: 4500
+- name: "[☁️] 162.159.192.17:500"
+  <<: *warp-common
+  server: 162.159.192.17
+  port: 500
+- name: "[☁️] 162.159.192.18:2408"
+  <<: *warp-common
+  server: 162.159.192.18
+  port: 2408
+- name: "[☁️] 162.159.192.18:1701"
+  <<: *warp-common
+  server: 162.159.192.18
+  port: 1701
+- name: "[☁️] 162.159.192.18:4500"
+  <<: *warp-common
+  server: 162.159.192.18
+  port: 4500
+- name: "[☁️] 162.159.192.18:500"
+  <<: *warp-common
+  server: 162.159.192.18
+  port: 500
+- name: "[☁️] 162.159.192.19:2408"
+  <<: *warp-common
+  server: 162.159.192.19
+  port: 2408
+- name: "[☁️] 162.159.192.19:1701"
+  <<: *warp-common
+  server: 162.159.192.19
+  port: 1701
+- name: "[☁️] 162.159.192.19:4500"
+  <<: *warp-common
+  server: 162.159.192.19
+  port: 4500
+- name: "[☁️] 162.159.192.19:500"
+  <<: *warp-common
+  server: 162.159.192.19
+  port: 500
+- name: "[☁️] 162.159.192.20:2408"
+  <<: *warp-common
+  server: 162.159.192.20
+  port: 2408
+- name: "[☁️] 162.159.192.20:1701"
+  <<: *warp-common
+  server: 162.159.192.20
+  port: 1701
+- name: "[☁️] 162.159.192.20:4500"
+  <<: *warp-common
+  server: 162.159.192.20
+  port: 4500
+- name: "[☁️] 162.159.192.20:500"
+  <<: *warp-common
+  server: 162.159.192.20
+  port: 500
+- name: "[☁️] 162.159.195.1:2408"
+  <<: *warp-common
+  server: 162.159.195.1
+  port: 2408
+- name: "[☁️] 162.159.195.1:1701"
+  <<: *warp-common
+  server: 162.159.195.1
+  port: 1701
+- name: "[☁️] 162.159.195.1:4500"
+  <<: *warp-common
+  server: 162.159.195.1
+  port: 4500
+- name: "[☁️] 162.159.195.2:2408"
+  <<: *warp-common
+  server: 162.159.195.2
+  port: 2408
+- name: "[☁️] 162.159.195.2:1701"
+  <<: *warp-common
+  server: 162.159.195.2
+  port: 1701
+- name: "[☁️] 162.159.195.2:4500"
+  <<: *warp-common
+  server: 162.159.195.2
+  port: 4500
+- name: "[☁️] 162.159.195.2:500"
+  <<: *warp-common
+  server: 162.159.195.2
+  port: 500
+- name: "[☁️] 162.159.195.3:2408"
+  <<: *warp-common
+  server: 162.159.195.3
+  port: 2408
+- name: "[☁️] 162.159.195.3:1701"
+  <<: *warp-common
+  server: 162.159.195.3
+  port: 1701
+- name: "[☁️] 162.159.195.3:4500"
+  <<: *warp-common
+  server: 162.159.195.3
+  port: 4500
+- name: "[☁️] 162.159.195.3:500"
+  <<: *warp-common
+  server: 162.159.195.3
+  port: 500
+- name: "[☁️] 162.159.195.4:2408"
+  <<: *warp-common
+  server: 162.159.195.4
+  port: 2408
+- name: "[☁️] 162.159.195.4:1701"
+  <<: *warp-common
+  server: 162.159.195.4
+  port: 1701
+- name: "[☁️] 162.159.195.4:4500"
+  <<: *warp-common
+  server: 162.159.195.4
+  port: 4500
+- name: "[☁️] 162.159.195.4:500"
+  <<: *warp-common
+  server: 162.159.195.4
+  port: 500
+- name: "[☁️] 162.159.195.5:2408"
+  <<: *warp-common
+  server: 162.159.195.5
+  port: 2408
+- name: "[☁️] 162.159.195.5:1701"
+  <<: *warp-common
+  server: 162.159.195.5
+  port: 1701
+- name: "[☁️] 162.159.195.5:4500"
+  <<: *warp-common
+  server: 162.159.195.5
+  port: 4500
+- name: "[☁️] 162.159.195.5:500"
+  <<: *warp-common
+  server: 162.159.195.5
+  port: 500
+- name: "[☁️] 162.159.195.6:2408"
+  <<: *warp-common
+  server: 162.159.195.6
+  port: 2408
+- name: "[☁️] 162.159.195.6:1701"
+  <<: *warp-common
+  server: 162.159.195.6
+  port: 1701
+- name: "[☁️] 162.159.195.6:4500"
+  <<: *warp-common
+  server: 162.159.195.6
+  port: 4500
+- name: "[☁️] 162.159.195.6:500"
+  <<: *warp-common
+  server: 162.159.195.6
+  port: 500
+- name: "[☁️] 162.159.195.7:2408"
+  <<: *warp-common
+  server: 162.159.195.7
+  port: 2408
+- name: "[☁️] 162.159.195.7:1701"
+  <<: *warp-common
+  server: 162.159.195.7
+  port: 1701
+- name: "[☁️] 162.159.195.7:4500"
+  <<: *warp-common
+  server: 162.159.195.7
+  port: 4500
+- name: "[☁️] 162.159.195.7:500"
+  <<: *warp-common
+  server: 162.159.195.7
+  port: 500
+- name: "[☁️] 162.159.195.8:2408"
+  <<: *warp-common
+  server: 162.159.195.8
+  port: 2408
+- name: "[☁️] 162.159.195.8:1701"
+  <<: *warp-common
+  server: 162.159.195.8
+  port: 1701
+- name: "[☁️] 162.159.195.8:4500"
+  <<: *warp-common
+  server: 162.159.195.8
+  port: 4500
+- name: "[☁️] 162.159.195.8:500"
+  <<: *warp-common
+  server: 162.159.195.8
+  port: 500
+- name: "[☁️] 162.159.195.9:2408"
+  <<: *warp-common
+  server: 162.159.195.9
+  port: 2408
+- name: "[☁️] 162.159.195.9:1701"
+  <<: *warp-common
+  server: 162.159.195.9
+  port: 1701
+- name: "[☁️] 162.159.195.9:4500"
+  <<: *warp-common
+  server: 162.159.195.9
+  port: 4500
+- name: "[☁️] 162.159.195.9:500"
+  <<: *warp-common
+  server: 162.159.195.9
+  port: 500
+- name: "[☁️] 162.159.195.10:2408"
+  <<: *warp-common
+  server: 162.159.195.10
+  port: 2408
+- name: "[☁️] 162.159.195.10:1701"
+  <<: *warp-common
+  server: 162.159.195.10
+  port: 1701
+- name: "[☁️] 162.159.195.10:4500"
+  <<: *warp-common
+  server: 162.159.195.10
+  port: 4500
+- name: "[☁️] 162.159.195.10:500"
+  <<: *warp-common
+  server: 162.159.195.10
+  port: 500
+
+# === END WARP PROXIES ===
+# ── masque ──
+- name: "[🎭] WARP-MASQUE QUIC"
+  <<: *warp-masque
+  server: 162.159.198.2
+  port: 443
+- name: "[🎭] WARP-MASQUE H2"
+  <<: *warp-masque
+  server: 162.159.198.2
+  port: 443
+  network: h2
+
+rule-providers:
+  skrepysh-proxy:
+    type: http
+    url: https://github.com/Skrepysh/mihomo-rulesets/raw/refs/heads/main/skrepysh-rulesets/skrepysh-proxy.yaml
+    interval: 86400
+    proxy: DIRECT
+    behavior: classical
+    format: yaml
+  ru-bundle:
+    type: http
+    url: https://github.com/legiz-ru/mihomo-rule-sets/raw/main/ru-bundle/rule.yaml
+    interval: 86400
+    proxy: DIRECT
+    behavior: domain
+    format: yaml
+  torrent-clients:
+    type: http
+    url: 'https://raw.githubusercontent.com/legiz-ru/mihomo-rule-sets/refs/heads/main/other/torrent-clients.yaml'
+    interval: 86400
+    proxy: DIRECT
+    behavior: classical
+    format: yaml
+  torrent-trackers:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://github.com/legiz-ru/mihomo-rule-sets/raw/main/other/torrent-trackers.mrs
+    path: ./rule-sets/torrent-trackers.mrs
+    interval: 86400
+  ru-direct-ips:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: "https://github.com/legiz-ru/mihomo-rule-sets/raw/main/ru-bundle/rknasnblock.mrs"
+    path: ./rules/ru-ips.mrs
+    interval: 86400
+  ru-app-list:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://github.com/legiz-ru/mihomo-rule-sets/raw/main/other/ru-app-list.yaml
+    path: ./rule-sets/ru-app-list.yaml
+    interval: 86400
+
+rules:
+  - GEOIP,RU,DIRECT,no-resolve
+  - GEOSITE,category-ru,DIRECT
+  - GEOSITE,github,PROXY
+  - RULE-SET,ru-bundle,PROXY
+  - RULE-SET,ru-direct-ips,PROXY
+  - RULE-SET,ru-app-list,DIRECT
+  - RULE-SET,torrent-clients,DIRECT
+  - RULE-SET,torrent-trackers,DIRECT
+  - RULE-SET,skrepysh-proxy,PROXY
+  - MATCH,PROXY
