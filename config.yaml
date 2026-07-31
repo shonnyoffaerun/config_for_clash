@@ -924,7 +924,7 @@ proxy-providers:
       lazy: true
   sub_36:
     type: http
-    url: "https://rstnnl.gitverse.site/sb/lite.txt"
+    url: "https://sub-rostunnel.vercel.app/subs/lite.txt"
     path: ./proxy_providers/sub_36.yml
     override:
       udp: true
