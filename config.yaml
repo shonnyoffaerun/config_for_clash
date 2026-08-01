@@ -565,7 +565,7 @@ proxy-providers:
       expected-status: 204
   sub_7:
     type: http
-    url: "https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/refs/heads/main/githubmirror/1.txt"
+    url: "https://sub.cloudspec.ru/XPCB6NB-Um0Lqk_j"
     path: ./proxy_providers/sub_7.yml
     override:
       udp: true
@@ -642,7 +642,7 @@ proxy-providers:
       expected-status: 204
   sub_13:
     type: http
-    url: "https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/refs/heads/main/githubmirror/26.txt"
+    url: "https://digitalnet.qzz.io/sub/06ea0E1NhbDjd8Qv"
     path: ./proxy_providers/sub_13.yml
     override:
       udp: true
@@ -773,7 +773,7 @@ proxy-providers:
       expected-status: 204
   sub_23:
     type: http
-    url: "https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/refs/heads/main/githubmirror/26.txt"
+    url: "https://bit.ly/bearvpnmedved"
     interval: 14400
     path: ./providers/goida_26.yaml
     override: {"skip-cert-verify": true, "udp": true, "alpn": ["h2", "http/1.1"], "client-fingerprint": "firefox"}
@@ -816,7 +816,7 @@ proxy-providers:
       lazy: true
   sub_27:
     type: http
-    url: "https://raw.githubusercontent.com/arhivedxx7/Keyfreetee/refs/heads/main/Maindee"
+    url: "https://fastlanehosting.ru/sub/Tc63ioxijuNzNYBni"
     path: ./proxy_providers/sub_27.yml
     override:
       udp: true
@@ -876,7 +876,7 @@ proxy-providers:
       lazy: true
   sub_32:
     type: http
-    url: "https://happ.ring-team.ru/sub/u6v5mktdma"
+    url: "https://happ.ring-team.ru/sub/igcf8yr4lu"
     path: ./proxy_providers/sub_32.yml
     override:
       udp: true
@@ -924,7 +924,7 @@ proxy-providers:
       lazy: true
   sub_36:
     type: http
-    url: "https://sub-rostunnel.vercel.app/subs/lite.txt"
+    url: "https://digitalnet.qzz.io/sub/06ea0E1NhbDjd8Qv"
     path: ./proxy_providers/sub_36.yml
     override:
       udp: true
@@ -936,7 +936,7 @@ proxy-providers:
       lazy: true
   sub_37:
     type: http
-    url: "https://raw.githubusercontent.com/RKPchannel/RKP_bypass_configs/refs/heads/main/blacklist.txt"
+    url: "https://raw.githubusercontent.com/luxxuria/harvester/refs/heads/main/non_ru.txt"
     path: ./proxy_providers/sub_37.yml
     override:
       udp: true
