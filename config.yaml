@@ -1598,12 +1598,20 @@ rule-providers:
     url: https://github.com/legiz-ru/mihomo-rule-sets/raw/main/other/ru-app-list.yaml
     path: ./rule-sets/ru-app-list.yaml
     interval: 86400
+  adblock:
+    type: http
+    behavior: domain 
+    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/reject.txt"
+    path: ./rulesets/adblock.yaml
+    interval: 86400 
 
 rules:
   - GEOIP,RU,DIRECT,no-resolve
   - GEOSITE,category-ru,DIRECT
+  - GEOSITE,category-ads-all,REJECT
   - GEOSITE,github,PROXY
-  - RULE-SET,ru-bundle,PROXY
+  - RULE-SET,ru-bundle,PROXY 
+  - RULE-SET,adblock,REJECT 
   - RULE-SET,ru-direct-ips,PROXY
   - RULE-SET,ru-app-list,DIRECT
   - RULE-SET,torrent-clients,DIRECT
