@@ -911,7 +911,7 @@ proxy-providers:
       lazy: true
   sub_36:
     type: http
-    url: "https://sub.shadow-net.site/JCagv3nBd1huQ92w"
+    url: "https://sub.fawlok.me/"
     path: ./proxy_providers/sub_36.yml
     override:
       udp: true
