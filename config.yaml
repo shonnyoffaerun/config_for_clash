@@ -911,7 +911,7 @@ proxy-providers:
       lazy: true
   sub_36:
     type: http
-    url: "ttps://gitverse.ru/api/repos/Akres/VPN/raw/branch/master/all"
+    url: "https://gitverse.ru/api/repos/Akres/VPN/raw/branch/master/all"
     path: ./proxy_providers/sub_36.yml
   sub_37:
     type: http
