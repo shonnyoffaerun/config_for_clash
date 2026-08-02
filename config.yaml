@@ -565,7 +565,7 @@ proxy-providers:
       expected-status: 204
   sub_7:
     type: http
-    url: "https://sub.cloudspec.ru/XPCB6NB-Um0Lqk_j"
+    url: "https://raw.githubusercontent.com/Diversan313/apex-parser/main/alive_full.txt"
     path: ./proxy_providers/sub_7.yml
     override:
       udp: true
