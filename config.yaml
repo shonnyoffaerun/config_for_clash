@@ -78,6 +78,7 @@ proxy-groups:
     - Subscription (35)
     - Subscription (36)
     - Subscription (37)
+    - Subscription (38)
     - WARP (Geo)
     - WARP (MASQUE)
     - WARP (Origin)
@@ -446,6 +447,16 @@ proxy-groups:
 - name: Subscription (37)
   use:
     - sub_38
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  expected-status: 204
+  interval: 300
+  tolerance: 150
+  lazy: true
+
+- name: Subscription (38)
+  use:
+    - sub_39
   type: url-test
   url: http://cp.cloudflare.com/generate_204
   expected-status: 204
@@ -935,6 +946,18 @@ proxy-providers:
     type: http
     url: "https://raw.githubusercontent.com/Maskkost93/kizyak-vpn-4.0/refs/heads/main/kizyakbeta6BL.txt"
     path: ./proxy_providers/sub_38.yml
+    override:
+      udp: true
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+      timeout: 5000
+      lazy: true
+  sub_39:
+    type: http
+    url: "https://nevpns.auravpn123.workers.dev/all"
+    path: ./proxy_providers/sub_39.yml
     override:
       udp: true
     health-check:
