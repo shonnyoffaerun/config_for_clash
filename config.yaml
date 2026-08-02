@@ -565,7 +565,7 @@ proxy-providers:
       expected-status: 204
   sub_7:
     type: http
-    url: "https://raw.githubusercontent.com/Diversan313/apex-parser/main/alive_full.txt"
+    url: "https://raw.githubusercontent.com/HalyavusVPNUS/halyava-vpn-mini/refs/heads/main/mini.txt"
     path: ./proxy_providers/sub_7.yml
     override:
       udp: true
@@ -578,7 +578,7 @@ proxy-providers:
       expected-status: 204
   sub_8:
     type: http
-    url: "https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/refs/heads/main/githubmirror/6.txt"
+    url: "https://raw.githubuуsercontent.com/AvenCores/goida-vpn-configs/refs/heads/main/githubmirror/6.txt"
     path: ./proxy_providers/sub_8.yml
     override:
       udp: true
@@ -591,7 +591,7 @@ proxy-providers:
       expected-status: 204
   sub_9:
     type: http
-    url: "https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/refs/heads/main/githubmirror/22.txt"
+    url: "https://mifa.world/hysteria"
     path: ./proxy_providers/sub_9.yml
     override:
       udp: true
@@ -631,19 +631,6 @@ proxy-providers:
     type: http
     url: "https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/refs/heads/main/githubmirror/25.txt"
     path: ./proxy_providers/sub_12.yml
-    override:
-      udp: true
-    health-check:
-      enable: true
-      url: http://cp.cloudflare.com/generate_204
-      interval: 300
-      timeout: 5000
-      lazy: true
-      expected-status: 204
-  sub_13:
-    type: http
-    url: "https://digitalnet.qzz.io/sub/06ea0E1NhbDjd8Qv"
-    path: ./proxy_providers/sub_13.yml
     override:
       udp: true
     health-check:
@@ -924,7 +911,7 @@ proxy-providers:
       lazy: true
   sub_36:
     type: http
-    url: "https://digitalnet.qzz.io/sub/06ea0E1NhbDjd8Qv"
+    url: "https://sub.shadow-net.site/JCagv3nBd1huQ92w"
     path: ./proxy_providers/sub_36.yml
     override:
       udp: true
