@@ -913,8 +913,6 @@ proxy-providers:
     type: http
     url: "https://gitverse.ru/api/repos/Akres/VPN/raw/branch/master/all"
     path: ./proxy_providers/sub_36.yml
-    override:
-      udp: true
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
