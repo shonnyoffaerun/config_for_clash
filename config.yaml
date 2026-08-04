@@ -956,8 +956,32 @@ proxy-providers:
       lazy: true
   sub_39:
     type: http
-    url: "https://nevpns.auravpn123.workers.dev/all"
+    url: "https://sub.vlessfo.ru/vlessforu/working_configs.txt"
     path: ./proxy_providers/sub_39.yml
+    override:
+      udp: true
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+      timeout: 5000
+      lazy: true
+  sub_40:
+    type: http
+    url: "https://vedalink.xyz/sub/reBTZUtKoc0-6HVR"
+    path: ./proxy_providers/sub_40.yml
+    override:
+      udp: true
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+      timeout: 5000
+      lazy: true
+  sub_41:
+    type: http
+    url: "https://tinyurl.com/tgk-wfequraniwo"
+    path: ./proxy_providers/sub_41.yml
     override:
       udp: true
     health-check:
