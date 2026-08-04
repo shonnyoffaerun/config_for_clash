@@ -79,6 +79,8 @@ proxy-groups:
     - Subscription (36)
     - Subscription (37)
     - Subscription (38)
+    - Subscription (39)
+    - Subscription (40)
     - WARP (Geo)
     - WARP (MASQUE)
     - WARP (Origin)
@@ -457,6 +459,26 @@ proxy-groups:
 - name: Subscription (38)
   use:
     - sub_39
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  expected-status: 204
+  interval: 300
+  tolerance: 150
+  lazy: true
+
+- name: Subscription (39)
+  use:
+    - sub_40
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  expected-status: 204
+  interval: 300
+  tolerance: 150
+  lazy: true
+
+- name: Subscription (40)
+  use:
+    - sub_41
   type: url-test
   url: http://cp.cloudflare.com/generate_204
   expected-status: 204
