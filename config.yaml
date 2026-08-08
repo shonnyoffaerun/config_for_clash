@@ -81,6 +81,7 @@ proxy-groups:
     - Subscription (38)
     - Subscription (39)
     - Subscription (40)
+    - Subscription (41)
     - WARP (Geo)
     - WARP (MASQUE)
     - WARP (Origin)
@@ -479,6 +480,16 @@ proxy-groups:
 - name: Subscription (40)
   use:
     - sub_41
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  expected-status: 204
+  interval: 300
+  tolerance: 150
+  lazy: true
+
+- name: Subscription (41)
+  use:
+    - sub_42
   type: url-test
   url: http://cp.cloudflare.com/generate_204
   expected-status: 204
@@ -1004,6 +1015,18 @@ proxy-providers:
     type: http
     url: "https://tinyurl.com/tgk-wfequraniwo"
     path: ./proxy_providers/sub_41.yml
+    override:
+      udp: true
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+      timeout: 5000
+      lazy: true
+  sub_42:
+    type: http
+    url: "https://enc.ring-team.ru/sub/h8p6t2hz8p"
+    path: ./proxy_providers/sub_42.yml
     override:
       udp: true
     health-check:
