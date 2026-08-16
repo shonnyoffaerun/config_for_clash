@@ -1641,6 +1641,58 @@ proxies:
   port: 443
   network: h2
 
+# masque + dns
+- name: "[🎭] WARP-MASQUE QUIC + DNS (dns.comss.one)"
+  type: masque
+  sni: 4pda.to
+  private-key: MHcCAQEEIBkHwYeaiOFCo9m62ZrcvG+vbOkegzcGcrViOb7dAG55oAoGCCqGSM49AwEHoUQDQgAEqgrUK8pUG0nkaNe1vvC8TakpUT4qwo6HDWvbM0bwmwAHfZ63MwueSOEaBum0aXkHIPPSJgnmCQKrS0fuIK04PQ==
+  public-key: MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEIaU7MToJm9NKp8YfGxR6r+/h4mcG7SxI8tsW8OR1A5tv/zCzVbCRRh2t87/kxnP6lAy0lkr7qYwu+ox+k3dr6w==
+  ip: 172.16.0.2
+  ipv6: 2606:4700:110:841c:2f0e:f71:5359:cd0
+  udp: true
+  remote-dns-resolve: true
+  dns: [83.220.169.155, 212.109.195.93, 195.133.25.16, 2a01:230:4:915::2, 2a01:230:4:306::2]
+  server: 162.159.198.2
+  port: 443
+- name: "[🎭] WARP-MASQUE H2 + DNS (dns.comss.one)"
+  type: masque
+  sni: 4pda.to
+  private-key: MHcCAQEEIBkHwYeaiOFCo9m62ZrcvG+vbOkegzcGcrViOb7dAG55oAoGCCqGSM49AwEHoUQDQgAEqgrUK8pUG0nkaNe1vvC8TakpUT4qwo6HDWvbM0bwmwAHfZ63MwueSOEaBum0aXkHIPPSJgnmCQKrS0fuIK04PQ==
+  public-key: MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEIaU7MToJm9NKp8YfGxR6r+/h4mcG7SxI8tsW8OR1A5tv/zCzVbCRRh2t87/kxnP6lAy0lkr7qYwu+ox+k3dr6w==
+  ip: 172.16.0.2
+  ipv6: 2606:4700:110:841c:2f0e:f71:5359:cd0
+  udp: true
+  remote-dns-resolve: true
+  dns: [83.220.169.155, 212.109.195.93, 195.133.25.16, 2a01:230:4:915::2, 2a01:230:4:306::2]
+  server: 162.159.198.2
+  port: 443
+  network: h2
+- name: "[🎭] WARP-MASQUE QUIC + DNS (dns.malw.link)"
+  type: masque
+  sni: 4pda.to
+  private-key: MHcCAQEEIBkHwYeaiOFCo9m62ZrcvG+vbOkegzcGcrViOb7dAG55oAoGCCqGSM49AwEHoUQDQgAEqgrUK8pUG0nkaNe1vvC8TakpUT4qwo6HDWvbM0bwmwAHfZ63MwueSOEaBum0aXkHIPPSJgnmCQKrS0fuIK04PQ==
+  public-key: MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEIaU7MToJm9NKp8YfGxR6r+/h4mcG7SxI8tsW8OR1A5tv/zCzVbCRRh2t87/kxnP6lAy0lkr7qYwu+ox+k3dr6w==
+  ip: 172.16.0.2
+  ipv6: 2606:4700:110:841c:2f0e:f71:5359:cd0
+  udp: true
+  remote-dns-resolve: true
+  dns: [84.21.189.133, 193.23.209.189, 2a12:bec4:1460:294::2, 2a01:ecc0:680:120::2]
+  server: 162.159.198.2
+  port: 443
+- name: "[🎭] WARP-MASQUE H2 + DNS (dns.malw.link)"
+  type: masque
+  sni: 4pda.to
+  private-key: MHcCAQEEIBkHwYeaiOFCo9m62ZrcvG+vbOkegzcGcrViOb7dAG55oAoGCCqGSM49AwEHoUQDQgAEqgrUK8pUG0nkaNe1vvC8TakpUT4qwo6HDWvbM0bwmwAHfZ63MwueSOEaBum0aXkHIPPSJgnmCQKrS0fuIK04PQ==
+  public-key: MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEIaU7MToJm9NKp8YfGxR6r+/h4mcG7SxI8tsW8OR1A5tv/zCzVbCRRh2t87/kxnP6lAy0lkr7qYwu+ox+k3dr6w==
+  ip: 172.16.0.2
+  ipv6: 2606:4700:110:841c:2f0e:f71:5359:cd0
+  udp: true
+  remote-dns-resolve: true
+  dns: [84.21.189.133, 193.23.209.189, 2a12:bec4:1460:294::2, 2a01:ecc0:680:120::2]
+  server: 162.159.198.2
+  port: 443
+  network: h2
+
 # proton warp configs
 - name: "[🇺🇳🇲🇽] 103.14.26.127:51820"
   type: wireguard
